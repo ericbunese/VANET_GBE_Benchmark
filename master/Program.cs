@@ -13,13 +13,18 @@ namespace master
     {
         static void Main(string[] args)
         {
-            string [] files = Report.GetFiles();
-            foreach (var file in files)
-            { 
-                Console.WriteLine("==========\nReading file: "+file);
-                var ret = Report.ProcessFile(file, new SymmetricAlgorithm());
-                Console.WriteLine(JsonConvert.SerializeObject(ret));
-                Console.WriteLine("Finishing file: "+file);
+            IAlgorithm[] algs = {new SymmetricAlgorithm(), new AsymmetricAlgorithm(), new GroupBroadcastAlgorithm()};
+            string[] files = Report.GetFiles();
+
+            foreach (var alg in algs)
+            {
+                foreach (var file in files)
+                {
+                    Console.WriteLine("==========\nReading file: " + file + " with algorithm "+ alg.GetType().ToString());
+                    var ret = Report.ProcessFile(file, alg);
+                    Console.WriteLine(JsonConvert.SerializeObject(ret));
+                    Console.WriteLine("Finishing file: " + file);
+                }
             }
 
             return;
