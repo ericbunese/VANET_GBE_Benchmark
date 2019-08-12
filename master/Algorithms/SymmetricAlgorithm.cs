@@ -16,8 +16,6 @@ namespace master.Algorithms
             {
                 total += 6;
                 connection.Setup = true;
-                total += 6;
-                connection.Setup = true;
             }
             return nonSetupConnections.Count + total;
         }
