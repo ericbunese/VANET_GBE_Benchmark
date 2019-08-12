@@ -22,6 +22,10 @@ namespace master
         public double AverageNumberOfDisconnectionMessages;
         public double AverageNumberOfGroupMessages;
 
+        public double MessagesSent = 0;
+        public double JoinMessagesSent = 0;
+        public double KickMessagesSent = 0;
+
         public Timestamp(int count)
         {
             Count = count;

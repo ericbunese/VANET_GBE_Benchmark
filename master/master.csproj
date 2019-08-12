@@ -50,6 +50,7 @@
     <Compile Include="Algorithms\GroupBroadcastAlgorithm.cs" />
     <Compile Include="Algorithms\SymmetricAlgorithm.cs" />
     <Compile Include="Connection.cs" />
+    <Compile Include="EMessageTypes.cs" />
     <Compile Include="IAlgorithm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

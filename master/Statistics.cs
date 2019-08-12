@@ -35,6 +35,9 @@ namespace master
                 final.NumberOfGroupMessages += ts.NumberOfGroupMessages;
                 final.NumberOfNewConnections += ts.NumberOfNewConnections;
                 final.NumberOfVehicles += ts.NumberOfVehicles;
+                final.MessagesSent += ts.MessagesSent;
+                final.JoinMessagesSent += ts.JoinMessagesSent;
+                final.KickMessagesSent += ts.KickMessagesSent;
             }
 
             Timestamps.Clear();

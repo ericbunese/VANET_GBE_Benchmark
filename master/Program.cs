@@ -13,7 +13,7 @@ namespace master
     {
         static void Main(string[] args)
         {
-            IAlgorithm[] algs = { new SymmetricAlgorithm(), new AsymmetricAlgorithm(), new GroupBroadcastAlgorithm() };
+            IAlgorithm[] algs = { /*new SymmetricAlgorithm(), */new AsymmetricAlgorithm()/*, new GroupBroadcastAlgorithm() */};
             string[] files = Report.GetFiles();
 
             foreach (var file in files)

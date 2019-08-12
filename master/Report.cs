@@ -11,6 +11,8 @@ namespace master
     {
         public static List<Vehicle> Vehicles;
         public static Statistics Statistics;
+        public static Timestamp Timestamp;
+        public static double EvilChance = 0.05;
 
         public static string[] GetFiles()
         {
@@ -31,19 +33,19 @@ namespace master
                     if (ln.Contains("["))
                     {
                         int value = GetTimestamp(ln);
-                        var ts = Statistics.AddTimestamp(value);
+                        Timestamp = Statistics.AddTimestamp(value);
 
                         foreach (var v in Vehicles)
                         {
-                            v.BeginTimestamp(ts);
+                            v.BeginTimestamp(Timestamp);
                         }
                         foreach (var v in Vehicles)
                         {
-                            v.StepTimestamp(ts);
+                            v.StepTimestamp(Timestamp);
                         }
                         foreach (var v in Vehicles)
                         {
-                            v.EndTimestamp(ts);
+                            v.EndTimestamp(Timestamp);
                         }
                     }
                     else
@@ -99,6 +101,18 @@ namespace master
         private static int GetTimestamp(string line)
         {
             return int.Parse(line.Replace("[", "").Replace("]", ""));
+        }
+
+        public static void SendTo(Vehicle origin, Vehicle destination, string message, EMessageTypes type)
+        {
+            if (type == EMessageTypes.Default)
+                Timestamp.MessagesSent++;
+            else if (type == EMessageTypes.Join)
+                Timestamp.JoinMessagesSent++;
+            else if (type == EMessageTypes.Kick)
+                Timestamp.KickMessagesSent++;
+
+            var str = origin.ReceiveFrom(destination, destination.ReceiveFrom(origin, message));
         }
     }
 }
