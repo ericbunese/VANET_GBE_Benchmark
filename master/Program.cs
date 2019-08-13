@@ -13,7 +13,8 @@ namespace master
     {
         static void Main(string[] args)
         {
-            IAlgorithm[] algs = { /*new SymmetricAlgorithm(), */new AsymmetricAlgorithm()/*, new GroupBroadcastAlgorithm() */};
+            List<Timestamp> Simulations = new List<Timestamp>();
+            IAlgorithm[] algs = { new SymmetricAlgorithm(), new AsymmetricAlgorithm(), new GroupBroadcastAlgorithm() };
             string[] files = Report.GetFiles();
 
             foreach (var file in files)
@@ -21,11 +22,12 @@ namespace master
                 foreach (var alg in algs)
                 {
                     Console.WriteLine("==========\nReading file: " + file + " with algorithm " + alg.GetType().ToString());
-                    var ret = Report.ProcessFile(file, alg);
-                    Console.WriteLine(JsonConvert.SerializeObject(ret));
+                    Simulations.Add(Report.ProcessFile(file, alg));
                     Console.WriteLine("Finishing file: " + file);
                 }
             }
+
+            Console.WriteLine(JsonConvert.SerializeObject(Simulations));
 
             return;
         }

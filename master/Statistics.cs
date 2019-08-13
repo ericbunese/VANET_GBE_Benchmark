@@ -22,9 +22,12 @@ namespace master
             return ts;
         }
 
-        public Timestamp Dump()
+        public Timestamp Dump(string Algorithm, string Filename)
         {
             Timestamp final = new Timestamp(0);
+            final.Algorithm = Algorithm;
+            final.Filename = Filename;
+
             int total = Timestamps.Count;
 
             foreach (var ts in Timestamps)

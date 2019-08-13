@@ -26,6 +26,9 @@ namespace master
         public double JoinMessagesSent = 0;
         public double KickMessagesSent = 0;
 
+        public string Algorithm;
+        public string Filename;
+
         public Timestamp(int count)
         {
             Count = count;

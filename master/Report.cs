@@ -94,7 +94,7 @@ namespace master
                 }
 
                 file.Close();
-                return Statistics.Dump();
+                return Statistics.Dump(algorithm.GetType().ToString(), filename);
             }
         }
 
