@@ -14,9 +14,9 @@ namespace master
         public static Timestamp Timestamp;
         public static double EvilChance = 0.05;
 
-        public static string[] GetFiles()
+        public static string[] GetFiles(string directory)
         {
-            return Directory.GetFiles(@"W:\Projetos\Master\the-one\reports", "*.txt");
+            return Directory.GetFiles(directory, "*.txt");
         }
 
         public static Timestamp ProcessFile(string filename, IAlgorithm algorithm)

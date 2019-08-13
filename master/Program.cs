@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace master
 {
@@ -15,7 +16,7 @@ namespace master
         {
             List<Timestamp> Simulations = new List<Timestamp>();
             IAlgorithm[] algs = { new SymmetricAlgorithm(), new AsymmetricAlgorithm(), new GroupBroadcastAlgorithm() };
-            string[] files = Report.GetFiles();
+            string[] files = Report.GetFiles(ConfigurationManager.AppSettings.Get("scanDirectory"));
 
             foreach (var file in files)
             {
