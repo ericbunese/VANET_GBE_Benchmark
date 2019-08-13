@@ -50,15 +50,15 @@
     <Compile Include="Algorithms\AsymetricAlgorithm.cs" />
     <Compile Include="Algorithms\GroupBroadcastAlgorithm.cs" />
     <Compile Include="Algorithms\SymmetricAlgorithm.cs" />
-    <Compile Include="Connection.cs" />
-    <Compile Include="EMessageTypes.cs" />
-    <Compile Include="IAlgorithm.cs" />
+    <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\EMessageTypes.cs" />
+    <Compile Include="Models\IAlgorithm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report.cs" />
-    <Compile Include="Statistics.cs" />
-    <Compile Include="Timestamp.cs" />
-    <Compile Include="Vehicle.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\Statistics.cs" />
+    <Compile Include="Models\Timestamp.cs" />
+    <Compile Include="Models\Vehicle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
